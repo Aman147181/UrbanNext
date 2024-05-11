@@ -4,7 +4,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
+import AuthProvider from "@/config/authProvider";
 export const metadata = {
   title: "Urban Dwellings",
   description: " Modern Interior furniture store",
@@ -12,14 +12,16 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Providers>
-          <Header/>
-          {children}
-          <Footer/>
-        </Providers>
+    <AuthProvider>
+      <html lang="en">
+        <body className={inter.className}>
+          <Providers>
+            <Header />
+            {children}
+            <Footer />
+          </Providers>
         </body>
-    </html>
+      </html>
+    </AuthProvider>
   );
 }
