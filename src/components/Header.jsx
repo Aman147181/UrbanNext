@@ -70,16 +70,16 @@ const Header = () => {
           <button
             key={index}
             onClick={() => signIn(provider.id)}
-            className="  border border-black hover:border-2 rounded-full p-[6px] space-x-2 px-6  text-black   hidden  sm:flex items-center justify-start"
+            className="  border border-black hover:border-2 rounded-full p-[6px] space-x-2 px-6  text-black   hidden  md:flex items-center justify-start"
           >
             <FcGoogle size={20} />
             <h1 className="text-sm">Sign in with Google</h1>
           </button>
         ))}
-    
+
       {console.log(session)}
-      <div className="flex justify-center space-x-2 items-center">
-        {session && (
+      {session && (
+        <div className=" justify-center flex space-x-2 items-center">
           <Dropdown placement="bottom-start">
             <DropdownTrigger>
               <div>
@@ -90,14 +90,14 @@ const Header = () => {
                     src: session.user.image,
                     size: "sm",
                   }}
-                  className="transition-transform hidden sm:flex"
+                  className="transition-transform hidden md:flex"
                   description={session.user.email}
                   name={session.user.name}
                 />
                 <Avatar
                   src={session.user.image}
                   size="sm"
-                  className="flex sm:hidden"
+                  className="flex md:hidden"
                 />
               </div>
             </DropdownTrigger>
@@ -120,17 +120,25 @@ const Header = () => {
               </DropdownItem>
             </DropdownMenu>
           </Dropdown>
-        )}
 
-        <button
-          onClick={() => {
-            setshowmobilemenu((el) => !el);
-          }}
-          className="block sm:hidden text-3xl"
-        >
-          {!showmobilemenu ? <IoMenuOutline /> : <RxCross1 />}
-        </button>
-      </div>
+          <button
+            onClick={() => {
+              setshowmobilemenu((el) => !el);
+            }}
+            className="block md:hidden text-3xl"
+          >
+            {!showmobilemenu ? <IoMenuOutline /> : <RxCross1 />}
+          </button>
+        </div>
+      )}
+      {!session&&<button
+        onClick={() => {
+          setshowmobilemenu((el) => !el);
+        }}
+        className="block md:hidden text-3xl"
+      >
+        {!showmobilemenu ? <IoMenuOutline /> : <RxCross1 />}
+      </button>}
     </div>
   );
 };
