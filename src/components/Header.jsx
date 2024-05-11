@@ -45,7 +45,7 @@ const Header = () => {
             alt="Urban Dwellings logo"
           />
           <h1
-            className={`  text-black  font-semibold text-xl  uppercase `}
+            className={`  text-black  font-semibold text-lg lg:text-xl  uppercase `}
           >
             Urban Dwellings
           </h1>
