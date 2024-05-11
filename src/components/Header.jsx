@@ -76,9 +76,7 @@ const Header = () => {
             <h1 className="text-sm">Sign in with Google</h1>
           </button>
         ))}
-      {!session && !providers && (
-        <div className="bg-white text-white w-32">lorem</div>
-      )}
+    
       {console.log(session)}
       <div className="flex justify-center space-x-2 items-center">
         {session && (
